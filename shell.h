@@ -1,5 +1,3 @@
-/* shell.h - header file for the simple shell project */
-
 #ifndef SHELL_H
 #define SHELL_H
 
