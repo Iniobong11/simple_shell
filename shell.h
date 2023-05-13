@@ -1,3 +1,5 @@
+/* shell.h - header file for the simple shell project */
+
 #ifndef SHELL_H
 #define SHELL_H
 
@@ -9,14 +11,14 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
-#include <fcnt1.h>
+#include <fcntl.h>
 
-/setenv/
-void _setenvcreat(char ***myenv, ini *e, char *entirenv);
+/* setenv */
+void _setenvcreat(char ***myenv, int *e, char *entirenv);
 int _issetenv(char **p, char ***myenv, int *e, int loop, char *v[]);
 void _sentev(char **p, char ***myenv, int *e, int loop, char *v[]);
 
-/global variables/
+/* global variables */
 char **create_env(char *envp[]);
 void _updatepwd(char *buf, char **myenv);
 void _updateoldpwd(char *buf, char **myenv);
