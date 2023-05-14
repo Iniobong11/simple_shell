@@ -1,12 +1,20 @@
 #include "shell.h"
+
 /**
- * main - Entry point for the program
- * @argc: The number of command line arguments
- * @argv: An array of strings containing the command line arguments
- * @envp: An array of strings containing the environment variables
+ * main - entry point for the program
+ * @argc: number of command-line arguments
+ * @argv: array of command-line argument strings
+ * @envp: array of environment variable strings
  *
- * Return: Always 0 (Success)
+ * Description: This program checks the number of command-line arguments and
+ *              calls different functions depending on the number of arguments.
+ *              If no arguments are passed, it calls the _noargv function.
+ *              If one argument is passed, it calls the _yesargv function.
+ *              Otherwise, it prints an error message to standard output.
+ *
+ * Return: 0 on success
  */
+
 int main(int argc, char *argv[], char *envp[])
 {
 	/* Check if no arguments were passed */
