@@ -1,0 +1,125 @@
+." Manpage for Simple_Shell
+.TH man 1 "24 May 2023" "1.0" "Manual page for Simple_Shell"
+
+.SH NAME
+.B \fBSimple_Shell\fR - Command language interpreter
+
+.SH SYNOPSIS
+\fB./hsh\fR
+
+.SH DESCRIPTION
+Simple_Shell is a command language interpreter that executes commands read from the standard input or from a file.
+
+.SH INVOCATION
+An interactive shell is started without any non-option arguments by running \fB./hsh\fR. When started non-interactively to run a shell script, for example, the shell reads and executes the next command as \fBecho "pwd" | ./hsh\fR.
+
+.SH COMMAND EXECUTION
+Simple_Shell first reads the input argument from the user, then splits the line into tokens. It searches for the executables in the paths specified by the PATH environment variable, forks a new process, and executes its code. Finally, it prints the output, exits the prompt, and sends the wait signal for the parent process to terminate.
+
+.SH BUILT-IN COMMANDS
+Each built-in command is executed directly in the shell.
+.TP
+.B \fBenv\fR - Displays all environment variables.
+.TP
+.B \fBcd [dir]\fR - Changes the current directory to \fIdir\fR. If no directory is provided, the default directory is the value of the HOME environment variable.
+.TP
+.B \fBexit [status]\fR - Terminates the shell process with Ctrl+D (EOF) or with the \fBexit\fR command. Causes the shell to exit with the specified status.
+.TP
+.B \fBhelp [pattern]\fR - Displays helpful information about built-in commands. If a pattern is specified, \fBhelp\fR provides detailed help on commands matching the pattern.
+.TP
+.B \fBpwd\fR - Prints the absolute pathname of the current working directory.
+.TP
+.B \fBunsetenv [variable]\fR - Removes an environment variable.
+
+.SH ENVIRONMENT
+Some environment variables used by Simple_Shell:
+.TP
+.B \fBHOME\fR - The home directory of the current user; the default argument for the \fBcd\fR built-in command.
+.TP
+.B \fBPATH\fR - The search path for commands. It is a colon-separated list of directories in which the shell looks for commands.
+.TP
+.B \fBPWD\fR - The absolute pathname for the current directory.
+.TP
+.B \fBOLDPWD\fR - The previous working directory as set by the \fBcd\fR command.
+
+.SH DELIMIT AND COMMENT COMMANDS
+Delimit commands are characters used to split the command string, and comment commands allow comments to be handled.
+.TP
+.B \fB;\fR - The semicolon (\fB;\fR) is used as a command separator to run multiple commands on a single line.
+.TP
+.B \fB#\fR - The hash symbol (\fB#\fR) allows a word beginning with \fB#\fR and all remaining characters on that line to be ignored as a comment.
+
+.SH FILES
+.TP
+\fI_atoi.c\fR - Function that converts a string to an integer.
+.TP
+\fI_calloc.c\fR - Function that allocates memory for an array.
+.TP
+\fI_change.c\fR - Functions that change the OLDPWD and PWD environment variables.
+.TP
+\fI_comments.c\fR - Function to handle comments with the # command
+.TP
+\fI_display_help.c\fR - Functions that read all built-in text files and print them to the standard output.
+.TP
+\fI_envir.c\fR - Functions to print the environment variables and create a copy of the environment.
+.TP
+\fI_errors.c\fR - Functions with error messages for each built-in command.
+.TP
+\fI_forky.c\fR - Program that creates a process and executes commands.
+.TP
+\fI_gethome.c\fR - Function to retrieve the value of the HOME environment variable.
+.TP
+\fI_getline.c\fR - Functions to read user input.
+.TP
+\fI_iscd.c\fR - Functions to change the current directory of the process.
+.TP
+\fI_isexit.c\fR - Functions that check if the input command is "exit" to terminate the shell process.
+.TP
+\fI_ishelp.c\fR - Functions to print the help information for each built-in command.
+.TP
+\fI_noargv.c\fR - Function to provide a shell without a filename as input.
+.TP
+\fI_realloc.c\fR - Function to change the size of allocated memory and copy the content.
+.TP
+\fI_realloc2.c\fR - Function to change the size of allocated memory and copy the content (special case).
+.TP
+\fI_signal.c\fR - Function to handle the SIGINT signal.
+.TP
+\fI_str_concat.c\fR - Function to create an array using malloc.
+.TP
+\fI_strlen.c\fR - Function that returns the length of a string.
+.TP
+\fI_strtoky.c\fR - Functions to tokenize a string based on delimiters.
+.TP
+\fI_unsetenv.c\fR - Functions to remove an environment variable.
+.TP
+\fI_writerr.c\fR - Functions to print error messages for each built-in command.
+.TP
+\fI_yesargv.c\fR - Function to provide a shell with a filename as input.
+.TP
+\fIcheckbin.c\fR - Functions to check if commands exist in the PATH.
+.TP
+\fIfree_grid.c\fR - Function to free a matrix (grid).
+.TP
+\fIman_1_simple_shell\fR - Manual page for Simple_Shell.
+.TP
+\fIparsing.c\fR - Functions to create an array of pointers based on delimiters.
+.TP
+\fIshell.h\fR - Header file containing all function prototypes.
+.TP
+\fIstartshell.c\fR - Main function that starts the shell (shell skeleton).
+
+.SH SEE ALSO
+chdir (2), close (2), execve (2), exit (3), fflush (3), fork (2), free (3), getcwd (3), getline (3), malloc (3), open (2), read (2), stat (2), signal (2), strtok (3), wait (2), waitpid (2), write (2).
+
+.SH BUGS
+None known at the moment.
+
+.SH AUTHORS
+Written by Kingsley Owusu Ansah and Amos Udo.
+
+.SH COPYRIGHT
+This manual page is Copyright (C) 2023 Kingsley Owusu Ansah and Amos Udo.
+
+.SH LICENSE
+This program is licensed under the terms of the MIT License.
