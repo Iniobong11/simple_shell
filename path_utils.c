@@ -116,7 +116,7 @@ char **checkbin(char **b, char **m)
 	path = _getpath(m);
 	if (path == NULL)
 		return (b);
-	newpath = _verifypath(path, ".");
+	newpath = _verfypath(path, ".");
 	tokens = _strtoky(newpath, ":");
 	if (!tokens)
 		return (NULL);

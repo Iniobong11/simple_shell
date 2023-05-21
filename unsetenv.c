@@ -13,7 +13,7 @@
 int _isunsetenv(char **p, char **myenv, int *e, int loop, char *v[])
 {
 	char str[] = "unsetenv";
-	int i = 0, cont = 0, salidaa - -1;
+	int i = 0, cont = 0, salida =  -1;
 
 	i = 0;
 	while (p[0][i] != '\0')

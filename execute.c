@@ -28,7 +28,7 @@ int currentstatus(int *status)
  * @m: The array of modified environment variables.
  * @f: The filename.
  */
-void _frk(char **p, char * 1, int a, int L, char **v, int e, char **m, char *f)
+void _frk(char **p, char *l, int a, int L, char **v, int e, char **m, char *f)
 {
 	pid_t child_pid;
 	int ty = 0, status, exist, execute;
@@ -48,7 +48,7 @@ void _frk(char **p, char * 1, int a, int L, char **v, int e, char **m, char *f)
 			if (exist == 0 && execute == -1)
 			{
 				_put_err(p, L, 4, v);
-				free(f), free(1);
+				free(f), free(l);
 				free_grid(p, a), free_grid(m, e);
 				exit(126);
 			}
@@ -56,7 +56,7 @@ void _frk(char **p, char * 1, int a, int L, char **v, int e, char **m, char *f)
 			{
 				_put_err(p, L, 3, v);
 			}
-			free(f), free(1);
+			free(f), free(l);
 			free_grid(p, a), free_grid(m, e);
 			exit(127);
 		}

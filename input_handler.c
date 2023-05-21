@@ -131,7 +131,7 @@ char *_getlineav(int *a, char **m, int e, char **av)
 			write(STDERR_FILENO, ": 0: ", 5);
 			write(STDERR_FILENO, "Can't open ", 11);
 			write(STDERR_FILENO, av[1], _strlen(av[1]));
-			write(STDERR_FILENO, "\n" 1), exit(127);
+			write(STDERR_FILENO, "\n", 1), exit(127);
 		}
 		*a = *a + 1;
 		while ((num = read(fd, letter, 1)) > 0)
