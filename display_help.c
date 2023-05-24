@@ -8,10 +8,9 @@
 
 ssize_t read_help(char **m)
 {
-	int ik, m, n;
+	int fd, r, w;
 	char *buf;
-	char helpfiles[] =
-"/simple_shell/_helpfiles/help_all.txt";
+	char helpfiles[] = "/simple_shell/_helpfiles/help_all.txt";
 	char *home, *helpdir;
 	size_t letters = 1024;
 
@@ -20,31 +19,31 @@ ssize_t read_help(char **m)
 		return (0);
 	home = _gethome(m);
 	helpdir = str_concat(home, helpfiles);
-	ik = open(helpdir, O_RDONLY);
-	if (ik == -1)
+	fd = open(helpdir, O_RDONLY);
+	if (fd == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	m - read(ik, buf, letters);
-	if (m == -1)
+	r = read(fd, buf, letters);
+	if (r == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	n = write(STDOUT_FILENO, buf, m);
-	if (n == -1)
+	w = write(STDOUT_FILENO, buf, r);
+	if (w == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	close(ik);
+	close(fd);
 	free(helpdir);
 	free(buf);
-	return (m);
+	return (r);
 }
 
 /**
@@ -55,44 +54,43 @@ ssize_t read_help(char **m)
 
 ssize_t read_cdhelp(char **m)
 {
-	int ik, m, n;
+	int fd, r, w;
 	char *buf;
-	char helpfiles[] =
-"/simple_shell/_helpfiles/help_cd.txt";
+	char helpfiles[] = "/simple_shell/_helpfiles/help_cd.txt";
 	char *home, *helpdir;
 	size_t letters = 1024;
 
 	buf = malloc((sizeof(char) * letters + 1));
-	if (buf == Null)
+	if (buf == NULL)
 		return (0);
 	home = _gethome(m);
 	helpdir = str_concat(home, helpfiles);
-	ik = open(helpdir, O_RDONLY);
-	if (ik == -1)
+	fd = open(helpdir, O_RDONLY);
+	if (fd == -1)
 	{
 		free(helpdir);
 		free(buf);
-		refurn(0);
+		return (0);
 	}
-	m = read(ik, buf, letters);
-	if (m == -1)
+	r = read(fd, buf, letters);
+	if (r == -1)
 	{
-	free(helpdir);
-	free(buf);
-	return (0);
+		free(helpdir);
+		free(buf);
+		return (0);
 	}
-	n = write(STDOUT_FILENO, buf, m);
-	if (n == -1)
+	w = write(STDOUT_FILENO, buf, r);
+	if (w == -1)
 	{
+		free(helpdir);
+		free(buf);
+		return (0);
+	}
+	close(fd);
 	free(helpdir);
 	free(buf);
-	return (0);
-	}
-	close(ik);
-	free(helpdir);
-	free(buf);
-	return (m);
-	}
+	return (r);
+}
 /**
 * read_exithelp - reads and prints exit text file to POSIX stdout
 * @m: environment variables
@@ -100,43 +98,42 @@ ssize_t read_cdhelp(char **m)
 */
 ssize_t read_exithelp(char **m)
 {
-	int ik, m, n;
+	int fd, r, w;
 	char *buf;
-	char helpfiles[] =
-"/simple_shell/_helpfiles/help_exit.txt";
+	char helpfiles[] = "/simple_shell/_helpfiles/help_exit.txt";
 	char *home, *helpdir;
 	size_t letters = 1024;
 
 	buf = malloc((sizeof(char) * letters + 1));
 	if (buf == NULL)
-	return (0);
+		return (0);
 	home = _gethome(m);
 	helpdir = str_concat(home, helpfiles);
-	ik = open(helpdir, O_RDONLY);
-	if (ik == -1)
+	fd = open(helpdir, O_RDONLY);
+	if (fd == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	m = read(ik, buf, letters);
-	if (m == -1)
+	r = read(fd, buf, letters);
+	if (r == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	n = write(STDOUT_FILENO, buf, m);
-	if (n == -1)
+	w = write(STDOUT_FILENO, buf, r);
+	if (w == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	close(ik);
+	close(fd);
 	free(helpdir);
 	free(buf);
-	return (m);
+	return (r);
 }
 /**
 * read_helphelp - helps in reading text file and print
@@ -145,41 +142,40 @@ ssize_t read_exithelp(char **m)
 */
 ssize_t read_helphelp(char **m)
 {
-	int ik, m, n;
+	int fd, r, w;
 	char *buf;
-	char helpfiles[] =
-"/simple_shell/_helpfiles/help_help.txt";
+	char helpfiles[] = "/simple_shell/_helpfiles/help_help.txt";
 	char *home, *helpdir;
 	size_t letters = 1024;
 
 	buf = malloc((sizeof(char) * letters + 1));
 	if (buf == NULL)
-	return (0);
+		return (0);
 	home = _gethome(m);
 	helpdir = str_concat(home, helpfiles);
-	ik = open(helpdir, O_RDONLY);
-	if (ik == -1)
+	fd = open(helpdir, O_RDONLY);
+	if (fd == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	m = read(ik, buf, letters);
-	if (m == -1)
+	r = read(fd, buf, letters);
+	if (r == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	n = write(STDOUT_FILENO, buf, m);
-	if (n == -1)
+	w = write(STDOUT_FILENO, buf, r);
+	if (w == -1)
 	{
 		free(helpdir);
 		free(buf);
 		return (0);
 	}
-	close(ik);
+	close(fd);
 	free(helpdir);
 	free(buf);
-	return (m);
+	return (r);
 }
