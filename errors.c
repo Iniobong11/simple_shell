@@ -9,8 +9,8 @@ void _errorcd(char **p)
 {
 	int a = 2;
 
-	write(STDERR_FILENO, p[0], 2)
-	wite(STDERR_FILENO, ": can't cd to ", 14);
+	write(STDERR_FILENO, p[0], 2);
+	write(STDERR_FILENO, ": can't cd to ", 14);
 	write(STDERR_FILENO, p[1], _strlen(p[1]));
 	write(STDERR_FILENO, "\n", 1);
 	currentstatus(&a);
@@ -35,7 +35,7 @@ void _errorexit(char **p)
  * @p: array of input pointers
  * Return: unsuccessful
  */
-void_errorhelp(char **p)
+void _errorhelp(char **p)
 {
 	int n = 2;
 
