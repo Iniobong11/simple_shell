@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * str_concat - create an array using malloc
- * @s1: first array
- * @s2: second array
- * Return: return a pointer or null
+ * str_concat - creating arrays using malloc
+ * @s1: no one array
+ * @s2: no two array
+ * Return: return null or  pointer
  */
 char *str_concat(char *s1, char *s2)
 {
@@ -47,9 +47,9 @@ char *str_concat(char *s1, char *s2)
 }
 
 /**
- * _strlen - returns the length of a string.
- * @s: string
- * Return: Always 0.
+ * _strlen - returns string lengt
+ * @s: string of values
+ * Return: 0 Always
  */
 int _strlen(char *s)
 {
@@ -61,4 +61,3 @@ int _strlen(char *s)
 	}
 	return (length);
 }
-
