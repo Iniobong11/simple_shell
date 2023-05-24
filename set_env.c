@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * _issetenv - finds if line input is setenv
- * @p: input of user, array of pointers
+ * _issetenv - confirm if line input is setenv
+ * @p: user input, array of pointers
  * @myenv: copy of environmental variables
  * @loop: number of loops
- * @e: number of elements in m
+ * @e: m number of elements
  * @v: arguments
- * Return: -1 if fails or 0 if success
+ * Return: 0 if success or -1 if fails
  */
 int _issetenv(char **p, char ***myenv, int *e, int loop, char *v[])
 {
@@ -44,12 +44,12 @@ int _issetenv(char **p, char ***myenv, int *e, int loop, char *v[])
 	return (salida);
 }
 /**
- * _setenv - function to add or modify an environment variable
+ * _setenv - function for adding or modifying an environment variable
  * environ points to an array of pointers to strings called the "environment"
- * @myenv: icopy of environmental
- * @loop: number of loops
- * @p: input of user
- * @e: number of elements in m
+ * @myenv: icopy of environmental variable
+ * @loop: no  of loops
+ * @p: user input
+ * @e: m number of elements
  * @v: arguments
  */
 void _setenv(char **p, char ***myenv, int *e, int loop, char *v[])
@@ -96,10 +96,10 @@ void _setenv(char **p, char ***myenv, int *e, int loop, char *v[])
 		_put_err(p, loop, 5, v);
 }
 /**
- * _setenvcreat - function to add or modify an environment variable
- * environ points to an array of pointers to strings called the "environment"
- * @myenv: icopy of environmental
- * @e: number of elements in m
+ * _setenvcreat - function to adding or modifying an environment variable
+ * environ shows an array of pointers to strings called the "environment"
+ * @myenv: i need a copy of environmental varaiables
+ * @e: m number of arguements
  * @entirenv: concatenate arguments
  */
 void _setenvcreat(char ***myenv, int *e, char *entirenv)
