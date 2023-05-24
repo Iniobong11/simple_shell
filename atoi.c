@@ -5,9 +5,9 @@
  * Return: The converted value of the string integer
  */
 
-int_atoi(char *s)
+int _atoi(char *s)
 {
-	unsigned int cont1 0, x, y, z, num = 0, tam;
+	unsigned int cont1 = 0, x, y, z, num = 0, tam;
 	int aux2 = 1;
 
 	while (*(s + cont1) != '\0')

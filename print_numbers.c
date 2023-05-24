@@ -10,7 +10,7 @@ void print_number(int n)
 	char a;
 	unsigned int var1, num, var2, var3 = 1;
 
-	var2 = m;
+	var2 = n;
 	num = var2;
 	while (num > 9)
 	{
