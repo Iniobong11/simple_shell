@@ -10,16 +10,16 @@
 int _ishelp(char **p, int loop, char *v[], char **m)
 {
 	char str[] = "help";
-	int n = 0, cont = 0, amos = -1;
+	int i = 0, cont = 0, salida = -1;
 
-	while (p[0][n])
+	while (p[0][i])
 	{
-		if (n < 4)
+		if (i < 4)
 		{
-			if (p[0][n] == str[n])
+			if (p[0][i] == str[i])
 				cont++;
 		}
-		n++;
+		i++;
 	}
 	if (i == 4)
 		cont++;
@@ -27,9 +27,9 @@ int _ishelp(char **p, int loop, char *v[], char **m)
 	if (cont == 5)
 	{
 		_help(p, loop, v, m);
-		amos = 0;
+		salida = 0;
 	}
-	return (amos);
+	return (salida);
 }
 /**
  * _help_builtin - builtin of help
